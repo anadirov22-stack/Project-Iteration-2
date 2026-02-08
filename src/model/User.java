@@ -14,4 +14,8 @@ public class User {
     public Role getRole() {
         return role;
     }
+
+    public String getPassword() {
+        return password;
+    }
 }

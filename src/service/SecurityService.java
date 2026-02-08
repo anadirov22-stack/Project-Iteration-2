@@ -1,5 +1,6 @@
 package service;
 
+import factory.UserFactory;
 import model.Role;
 import model.User;
 
@@ -9,21 +10,12 @@ public class SecurityService {
 
     public static boolean login(String username, String password) {
 
-        if (username.equals("admin") && password.equals("admin123")) {
-            currentUser = new User(username, password, Role.ADMIN);
+        User user = UserFactory.createUser(username);
+
+        if (user != null && user.getPassword().equals(password)) {
+            currentUser = user;
             return true;
         }
-
-        if (username.equals("manager") && password.equals("manager123")) {
-            currentUser = new User(username, password, Role.MANAGER);
-            return true;
-        }
-
-        if (username.equals("user") && password.equals("user123")) {
-            currentUser = new User(username, password, Role.USER);
-            return true;
-        }
-
         return false;
     }
 

@@ -9,6 +9,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         // ===== Login =====
+
         System.out.println("===== Login =====");
         System.out.print("Username: ");
         String username = scanner.nextLine();
